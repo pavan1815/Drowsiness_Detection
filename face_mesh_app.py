@@ -9,8 +9,17 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 import os
 from pygame import mixer
-mixer.init()
-sound = mixer.Sound('alarm.wav')
+# mixer.init()
+# sound = mixer.Sound('alarm.wav')
+
+html_string = """
+            <audio controls autoplay>
+              <source src="alarm.wav" type="audio/mp3">
+            </audio>
+            """
+
+sound = st.empty()
+
 
 
 mp_drawing = mp.solutions.drawing_utils
@@ -217,7 +226,10 @@ elif app_mode=="Run on Video":
                     yscore=yscore+1
                     if(yscore > 5):
                         try:
-                            sound.play()
+#                             sound.play()
+                              sound.markdown(html_string, unsafe_allow_html=True)  # will display a st.audio with the sound you specified in the "src" of the html_string and autoplay it
+                              time.sleep(1)  # wait for 2 seconds to finish the playing of the audio
+                              sound.empty()  # optionally delete the element afterwards
                         except:
                             pass
             except:
@@ -238,7 +250,10 @@ elif app_mode=="Run on Video":
             escore=escore+1
             if(escore > 10):
                 try:
-                    sound.play()
+#                     sound.play()
+                      sound.markdown(html_string, unsafe_allow_html=True)  # will display a st.audio with the sound you specified in the "src" of the html_string and autoplay it
+                      time.sleep(1)  # wait for 2 seconds to finish the playing of the audio
+                      sound.empty()  # optionally delete the element afterwards
                 except:
                     pass 
 
