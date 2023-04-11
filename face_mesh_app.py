@@ -10,7 +10,7 @@ from tensorflow.keras.models import load_model
 import os
 from pygame import mixer
 mixer.init()
-sound = mixer.Sound('D:/4th Year/Major project/alarm.wav')
+sound = mixer.Sound('alarm.wav')
 
 
 mp_drawing = mp.solutions.drawing_utils
@@ -19,12 +19,12 @@ mp_face_mesh = mp.solutions.face_mesh
 DEMO_IMAGE='demo.jpg'
 DEMO_VIDEO = 'demo.mp4'
 #loading models
-eye_model = load_model(os.path.join("D:/4th Year/Major project/models", "eyesdetection.h5"))
-yawn_model = load_model(os.path.join("D:/4th Year/Major project/models" , "created_dataset_yawndetection1.h5"))
+eye_model = load_model("eyesdetection.h5")
+yawn_model = load_model("created_dataset_yawndetection1.h5")
 #haarcascade classifiers
-face_cascade = cv2.CascadeClassifier ("D:/4th Year/Major project/haarcascade_frontalface_default.xml")
-eye_cascade = cv2.CascadeClassifier("D:/4th Year/Major project/haarcascade_eye.xml")
-mouth_cascade = cv2.CascadeClassifier("D:/4th Year/Major project/haarcascade_smile.xml")
+face_cascade = cv2.CascadeClassifier ("haarcascade_frontalface_default.xml")
+eye_cascade = cv2.CascadeClassifier("haarcascade_eye.xml")
+mouth_cascade = cv2.CascadeClassifier("haarcascade_smile.xml")
 st.markdown(
     """
     <style>
